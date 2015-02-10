@@ -12,7 +12,6 @@
 namespace CL\Slack\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
@@ -21,36 +20,26 @@ class Attachment extends AbstractModel
 {
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $fallback;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $preText;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $text;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $color;
 
     /**
-     * @var array
-     *
-     * @Serializer\Type("ArrayCollection<string, string>")
+     * @var ArrayCollection<string, string>
      */
     private $fields;
 

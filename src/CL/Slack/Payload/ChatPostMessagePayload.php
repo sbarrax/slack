@@ -11,9 +11,9 @@
 
 namespace CL\Slack\Payload;
 
+use Assert\Assertion as Assert;
 use CL\Slack\Model\Attachment;
 use Doctrine\Common\Collections\ArrayCollection;
-use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
@@ -24,71 +24,51 @@ class ChatPostMessagePayload extends AbstractPayload
 {
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $channel;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $text;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $username;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $iconEmoji;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $iconUrl;
 
     /**
      * @var boolean
-     *
-     * @Serializer\Type("boolean")
      */
     private $unfurlLinks;
 
     /**
      * @var boolean
-     *
-     * @Serializer\Type("boolean")
      */
     private $unfurlMedia;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $linkNames;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $parse;
 
     /**
-     * @var ArrayCollection|Attachment[]
-     *
-     * @Serializer\Type("ArrayCollection<CL\Slack\Model\Attachment>")
+     * @var Attachment[]|ArrayCollection
      */
     private $attachments;
 
@@ -105,6 +85,8 @@ class ChatPostMessagePayload extends AbstractPayload
      */
     public function setChannel($channel)
     {
+        Assert::startsWith($channel, '#');
+        
         $this->channel = $channel;
     }
 

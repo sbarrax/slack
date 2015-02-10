@@ -27,7 +27,7 @@ class ChatPostMessagePayloadTest extends AbstractPayloadTest
     protected function createPayload()
     {
         $payload = new ChatPostMessagePayload();
-        $payload->setChannel('acme_channel');
+        $payload->setChannel('#acme_channel');
         $payload->setUsername('acme_user');
         $payload->setText('Hello World!');
         $payload->setIconEmoji(':truck:');

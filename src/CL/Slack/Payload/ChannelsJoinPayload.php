@@ -11,7 +11,7 @@
 
 namespace CL\Slack\Payload;
 
-use JMS\Serializer\Annotation as Serializer;
+use Assert\Assertion as Assert;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
@@ -22,8 +22,6 @@ class ChannelsJoinPayload extends AbstractPayload
 {
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
      */
     private $name;
 
@@ -32,6 +30,8 @@ class ChannelsJoinPayload extends AbstractPayload
      */
     public function setChannel($channel)
     {
+        Assert::startsWith($channel, '#');
+        
         $this->name = $channel;
     }
 
